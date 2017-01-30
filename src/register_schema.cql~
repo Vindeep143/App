@@ -1,0 +1,14 @@
+DROP KEYSPACE IF EXISTS Registration;
+
+CREATE KEYSPACE IF NOT EXISTS Registration WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };
+
+USE Registration;
+
+DROP TABLE IF EXISTS user_info;
+
+CREATE TABLE IF NOT EXISTS user_info(
+	id text,
+	name text,
+	password text,
+	
+	PRIMARY KEY(id);
