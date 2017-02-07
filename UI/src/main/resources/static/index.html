@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+   function handle() {   // txt == content of form input
+    alert("Entered value: " + getTextValue(document.form.name));
+   }
+  </script>
+</head>
+<body>
+     <form name="form" action="javascript:handle()" method="post">
+  Name:<br>
+  <input type="text" name="name" id="name"><br>
+  Password:<br>
+  <input type="text" name="password" id="password">
+  <input type="submit" value="Submit">
+</form> 
+</body>
+</html>
+
