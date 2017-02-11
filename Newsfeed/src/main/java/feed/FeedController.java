@@ -13,13 +13,20 @@ import com.datastax.driver.core.querybuilder.Select;
 import com.datastax.driver.core.querybuilder.Select.Where;
 import com.datastax.driver.core.BoundStatement;
 import com.datastax.driver.core.PreparedStatement;
+//import com.google.code.gson.Gson;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import java.util.*;
 import feed.TweetDTO;
+
+import java.io.IOException;
 
 import main.java.cassandra.CassandraCluster;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,6 +39,7 @@ import java.time.LocalTime;
 
 @Component
 @RestController
+@CrossOrigin(origins="*")
 public class FeedController {
 
 	private static CassandraCluster client;
@@ -39,8 +47,11 @@ public class FeedController {
 	 private static Cluster cluster;
 	private String TABLE_NAME = "tweets";
 	@RequestMapping("/feeds")
-	public List<TweetDTO> register()
+	public String register() throws IOException
 	{
+	 	ObjectMapper objectMapper = new ObjectMapper();
+    	//Set pretty printing of json
+    	objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
   
 			client = new CassandraCluster();
             session = client.connect();
@@ -61,7 +72,8 @@ public class FeedController {
     			dto.setTime(rw.getString("time"));
     			list.add(dto);
     		}
-    		return list;
+    		String array = objectMapper.writeValueAsString(list);
+    		return array;
         
 	}
 	

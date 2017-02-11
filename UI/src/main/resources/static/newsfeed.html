@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+window.onload = handle;
+   function handle() {   // txt == content of form input
+  
+    
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+    if (this.status==200) {
+    var data=JSON.parse(xhr.responseText);
+    for(var i=0;i<data.length;i++)
+    {
+  document.body.innerHTML+=" <table align='center' style='height: 43px;' border='1' width='575'>\
+<tbody>\
+<tr>\
+<td style='text-align: left;'>\
+<table style='height: 20px;' width='567'>\
+<tbody>\
+<tr>\
+<td>"+data[i].name+"</td>\
+<td style='text-align: right;'>"+data[i].date+" "+data[i].time+"</td>\
+</tr>\
+</tbody>\
+</table>\
+<table style='height: 20px;' width='567'>\
+<tbody>\
+<tr>\
+<td>"+data[i].message+"</td>\
+</tr>\
+</tbody>\
+</table>\
+</td>\
+</tr>\
+</tbody>\
+</table>"
+    }
+    
+}
+}
+    xhr.open("get","http://127.0.0.1:8092/feeds",false);
+    xhr.responseType="application/json";
+    //xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send();
+    
+   }
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+

@@ -20,6 +20,9 @@
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
     if (xhr.readyState == XMLHttpRequest.DONE) {
+      if(xhr.responseText=="Valid")
+    window.location.href="../newsfeed.html";
+    else
         alert(xhr.responseText);
     }
 }
@@ -32,8 +35,9 @@
 </head>
 <body>
 	<form name="frm" action="javascript:handle()" method="post">
+	UserID:<br> <input type="text" name="id" id="id"><br>
 		Name:<br> <input type="text" name="name" id="name"><br>
-		Password:<br> <input type="text" name="password" id="password">
+		Password:<br> <input type="text" name="password" id="password"><br>
 		<input type="submit" value="Submit">
 	</form>
 </body>
