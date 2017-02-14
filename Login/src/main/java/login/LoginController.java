@@ -67,7 +67,7 @@ public class LoginController {
 		List<Row> row = rs.all();
 		for(Row rw:row)
 		{
-			if(rw.getString("name").equals(login.getName())&&rw.getString("password").equals(login.getPassword()))
+			if(rw.getString("password").equals(login.getPassword()))
 				return true;
 		}
 		return false;

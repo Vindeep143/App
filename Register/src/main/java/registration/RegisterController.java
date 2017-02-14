@@ -28,6 +28,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RestController
+@CrossOrigin(origins="*")
 public class RegisterController {
 	//@Autowired
 	//private CassandraConnector client;
