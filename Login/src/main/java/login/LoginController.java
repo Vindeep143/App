@@ -35,7 +35,7 @@ public class LoginController {
 	private Session session;
 	// private static Cluster cluster;
 	private String TABLE_NAME = "user_info";
-	@RequestMapping(value="/login",method=RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value="/login/do",method=RequestMethod.POST,consumes="application/json")
 	public String register(@RequestBody LoginDTO registerdto)
 	{
 		

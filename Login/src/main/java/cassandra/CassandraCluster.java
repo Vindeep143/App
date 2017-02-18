@@ -2,7 +2,7 @@ package main.java.cassandra;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
-
+import java.util.Map;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,10 @@ public class CassandraCluster {
 	 public Session connect()
 	 {
 		 try {
+			 Map<String, String> env = System.getenv();
+			 contactpoints = env.get("CASSANDRA_HOST");
+			 port = Integer.parseInt(env.get("CASSANDRA_PORT"));
+			 
 			 
 	            cluster = Cluster.builder().addContactPoint(contactpoints).build();
 	 

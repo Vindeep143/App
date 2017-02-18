@@ -26,20 +26,22 @@
         alert(xhr.responseText);
     }
 }
-    xhr.open("post","http://127.0.0.1:8091/login",true);
+    xhr.open("post","http://172.17.0.4:8091/login/do",true);
     xhr.setRequestHeader('Content-Type','application/json');
     xhr.send(JSON.stringify(data));
     
    }
   </script>
 </head>
+
 <body>
-	<form name="frm" action="javascript:handle()" method="post">
+<h1>Login Page</h1>
+	<form align="center" name="frm" action="javascript:handle()" method="post">
 	UserID:<br> <input type="text" name="id" id="id"><br>
-		Name:<br> <input type="text" name="name" id="name"><br>
 		Password:<br> <input type="text" name="password" id="password"><br>
 		<input type="submit" value="Submit">
 	</form>
+	 <a href="../register.html">New User?</a> 
 </body>
 </html>
 

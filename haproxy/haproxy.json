@@ -1,0 +1,6 @@
+consul = "VM_HOST:8500"
+template {
+        source = "/opt/consul-files/haproxy.cfg"
+        destination = "/etc/haproxy/haproxy.cfg"
+        command = "haproxy -V -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -sf $(cat /var/run/haproxy.pid)"
+}

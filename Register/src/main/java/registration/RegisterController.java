@@ -37,7 +37,7 @@ public class RegisterController {
 	private Session session;
 	 private static Cluster cluster;
 	private String TABLE_NAME = "user_info";
-	@RequestMapping(value="/register",method=RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value="/register/do",method=RequestMethod.POST,consumes="application/json")
 	public String register(@RequestBody RegisterDTO registerdto)
 	{
 		//client.setKeyspace("registration");

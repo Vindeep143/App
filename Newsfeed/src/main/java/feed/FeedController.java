@@ -46,7 +46,7 @@ public class FeedController {
 	private Session session;
 	 private static Cluster cluster;
 	private String TABLE_NAME = "tweets";
-	@RequestMapping("/feeds")
+	@RequestMapping("/feeds/do")
 	public String register() throws IOException
 	{
 	 	ObjectMapper objectMapper = new ObjectMapper();

@@ -35,7 +35,7 @@ public class TweetController {
 	private Session session;
 	 private static Cluster cluster;
 	private String TABLE_NAME = "tweets";
-	@RequestMapping(value="/tweet",method=RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value="/tweet/do",method=RequestMethod.POST,consumes="application/json")
 	public String register(@RequestBody TweetDTO tweetdto)
 	{
   
