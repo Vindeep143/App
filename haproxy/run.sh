@@ -1,6 +1,6 @@
 #!/bin/bash
 DOCKER_HOST_IP=$(ip addr | grep inet | grep docker0 | awk -F " " '{print $2}' | sed -e 's/\/.*$//')
-
+docker rm -f consul registrator haproxy
 docker run -d --name=consul --net=host gliderlabs/consul-server -bootstrap -bind $DOCKER_HOST_IP
 
 docker run -d --name=registrator --net=host --volume=/var/run/docker.sock:/tmp/docker.sock \

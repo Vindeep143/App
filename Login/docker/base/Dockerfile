@@ -16,10 +16,10 @@ RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-se
 RUN sudo -E apt-get -y install oracle-java8-installer
 
 
-RUN wget https://github.com/hashicorp/envconsul/archive/v0.6.2.zip -O /envconsul.zip
+RUN wget https://releases.hashicorp.com/envconsul/0.6.1/envconsul_0.6.1_linux_amd64.zip -O /envconsul.zip
 RUN unzip /envconsul.zip -d /usr/local/bin
 RUN rm /envconsul.zip
-RUN make -C /usr/local/bin/envconsul-0.6.2/
+
 
 RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 RUN rm -rf /var/cache
