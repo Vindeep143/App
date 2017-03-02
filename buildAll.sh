@@ -1,4 +1,6 @@
-cd Login/docker/
+cd Login/docker/base/
+docker build -t base .
+cd ../
 bash build.sh login
 cd ../../Tweet/docker/
 bash build.sh tweet
